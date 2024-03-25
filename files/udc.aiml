@@ -1,7 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
-  <category>
-    <pattern>*</pattern>
-    <template>I have no answer for that.</template>
-  </category>
+    <category>
+        <pattern>*</pattern>
+        <template>Sorry, I don't understand what you said.</template>
+    </category>
+  
+    <category>
+        <pattern>Hi</pattern>
+        <template>Hey! I am CareerAI. I help CS undergraduates make the right career choices. With a quick quiz, I will help you determine what job is best fit for you!
+        <br/><br/>What is your name? Please write "My name is..."</template>
+    </category>
+  
+    <category>
+        <pattern>My name is *</pattern>
+        <template>Hey <set name = "name"><star/></set>! Type "Begin" to start the quiz :)</template>
+    </category>
+  
+  <!--<category>-->
+  <!--    <pattern>What is my name</pattern>-->
+  <!--    <template>Your name is <get name = "name"/></template>-->
+  <!--</category>-->
+  
+    <category>
+        <pattern>Begin</pattern>
+        <template>
+            Which do you like more: The idea of creating applications that interact directly with people, or going deep into hardware/software interaction and probability/statistics? 
+            <button><text>Creating applications that interact with people</text><postback>CREATING APPS</postback></button>
+            <button><text>Going deeply into computers and probability/statistics</text><postback>DIGGING DEEP</postback></button>
+        </template>
+    </category>
+  
+    <category>
+        <pattern>CREATING APPS</pattern>
+        <template>
+            Do you like designing things, or rather prefer solving problems while not caring much about looks?
+            <button><text>I like designing things</text><postback>FRONT END</postback></button>
+            <button><text>I prefer solving problems</text><postback>BACK END</postback></button>
+            <button><text>I really enjoy doing both!</text><postback>FULL STACK CHAD</postback></button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DIGGING DEEP</pattern>
+        <template>
+            Do you like building something from nothing, even if it's something minor, or do you like statistics, probability, and data more?
+            <button><text>I like building something from nothing</text><postback>EMBEDDED GEEK</postback></button>
+            <button><text>Statistics, probability, and data is my thing</text><postback>ML NERD</postback></button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <think>
+                <set career = "career"><star/></set>
+            </think>
+            Your quiz is complete, <get name="name"/>! The most suitable career choice for you is being a
+            <condition name="career">
+                <li career="FRONT END"> front-end engineer!</li>
+                <li career="BACK END"> back-end engineer!</li>
+                <li career="FULL STACK CHAD"> full-stack engineer!</li>
+                <li career="EMBEDDED GEEK"> embedded engineer!</li>
+                <li career="ML NERD"> machine learning engineer!</li>
+            </condition>
+            !
+        </template>
+    </category>
+
 </aiml>
