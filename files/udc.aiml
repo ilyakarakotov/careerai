@@ -15,12 +15,7 @@
         <pattern>My name is *</pattern>
         <template>Hey <set name = "name"><star/></set>! Type "Begin" to start the quiz :)</template>
     </category>
-  
-  <!--<category>-->
-  <!--    <pattern>What is my name</pattern>-->
-  <!--    <template>Your name is <get name = "name"/></template>-->
-  <!--</category>-->
-  
+    
     <category>
         <pattern>Begin</pattern>
         <template>
@@ -53,17 +48,16 @@
         <pattern>*</pattern>
         <template>
             <think>
-                <set career = "career"><star/></set>
+                <set name="career"><star/></set>
             </think>
             Your quiz is complete, <get name="name"/>! The most suitable career choice for you is being a
             <condition name="career">
-                <li career="FRONT END"> front-end engineer!</li>
-                <li career="BACK END"> back-end engineer!</li>
-                <li career="FULL STACK CHAD"> full-stack engineer!</li>
-                <li career="EMBEDDED GEEK"> embedded engineer!</li>
-                <li career="ML NERD"> machine learning engineer!</li>
+                <li value="FRONT END"> front-end engineer!</li>
+                <li value="BACK END"> back-end engineer!</li>
+                <li value="FULL STACK CHAD"> full-stack engineer!</li>
+                <li value="EMBEDDED GEEK"> embedded engineer!</li>
+                <li value="ML NERD"> machine learning engineer!</li>
             </condition>
-            !
         </template>
     </category>
 
